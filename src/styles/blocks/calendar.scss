@@ -1,5 +1,4 @@
 .calendar {
-  
   @include flex-center;
 
   min-height: 100vh;
@@ -19,7 +18,6 @@
     background-color: $color-light-gray;
     border: $border solid $color-black;
     box-sizing: border-box;
-    cursor: pointer;
     transition:
       transform 0.5s ease,
       background-color 0.5s ease;
@@ -38,12 +36,13 @@
     &:hover {
       background-color: $color-pink;
       transform: translateY(-20px);
+      cursor: pointer;
     }
   }
 
   @each $day, $index in $days {
     &--start-day-#{$day} .calendar__day:first-child {
-      margin-left: $index * ($day-size + $gap);
+      margin-left: ($index - 1) * ($day-size + $gap);
     }
   }
 
